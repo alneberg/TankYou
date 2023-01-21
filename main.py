@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 
-app = FastAPI()
+tank_you = FastAPI()
 
 
-@app.get("/")
+@tank_you.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Hello You"}
