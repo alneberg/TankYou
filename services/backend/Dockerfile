@@ -8,6 +8,3 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 # 
 COPY ./main.py /code/
-
-# 
-CMD ["uvicorn", "main:tank_you", "--host", "0.0.0.0", "--port", "80"]
