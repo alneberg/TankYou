@@ -1,16 +1,12 @@
 # develop stage
-FROM node:18.13-alpine as develop-stage
+FROM node:lts-alpine
 WORKDIR /app
-COPY package*.json ./
-RUN yarn install
-COPY . .
+ENV PATH /app/node_modules/.bin:$PATH
 
-# build stage
-FROM develop-stage as build-stage
-RUN yarn build
+RUN npm install @vue/cli@5.0.8 -g
 
-# production stage (not checked)
-FROM nginx:1.23.3-alpine as production-stage
-COPY --from=build-stage /app/dist /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+COPY package.json .
+COPY package-lock.json .
+RUN npm install
+
+CMD ["npm", "run", "serve"]
