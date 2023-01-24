@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 tank_you = FastAPI()
 
-app.add_middleware(
+tank_you.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:8080"],
     allow_credentials=True,

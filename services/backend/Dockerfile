@@ -1,10 +1,13 @@
-FROM python:3.9
+FROM python:3.11-buster
 
-WORKDIR /code
+RUN mkdir app
+WORKDIR /app
 
-COPY ./requirements.txt /code/requirements.txt
+ENV PATH="${PATH}:/root/.local/bin"
+ENV PYTHONPATH=.
 
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+COPY requirements.txt .
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
 
-# 
-COPY ./app/main.py /code/
+COPY app/ .
