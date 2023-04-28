@@ -1,5 +1,5 @@
 # TankYou
-Small hobby app to track cbg/cng mileage.
+Small hobby app to track cbg/cng mileage
 
 
 Used following command to generate frontend container:
